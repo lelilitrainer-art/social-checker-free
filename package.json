@@ -1,0 +1,11 @@
+{
+  "name": "social-checker-free",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check": "node scraper.js"
+  },
+  "dependencies": {
+    "playwright": "^1.52.0"
+  }
+}

@@ -2,6 +2,13 @@ name: Check Social Free
 
 on:
   workflow_dispatch:
+    inputs:
+      rows_json:
+        description: 'Rows JSON from Google Sheet'
+        required: true
+      callback_url:
+        description: 'Google Apps Script callback URL'
+        required: true
 
 jobs:
   check:
@@ -23,4 +30,7 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: Run scraper
+        env:
+          ROWS_JSON: ${{ inputs.rows_json }}
+          CALLBACK_URL: ${{ inputs.callback_url }}
         run: node scraper.js
